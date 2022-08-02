@@ -44,7 +44,26 @@ class CustomListTest(TestCase):
     def test_get_method(self):
         my_list = CustomList(1, 2, 3)
         self.assertEqual([1, 2, 3], my_list._CustomList__elements)
-        value =  my_list.get(
+        value =  my_list.get(0)
+        self.assertEqual(1, value)
+
+    def test_extend_method_raises(self):
+        my_list = CustomList(1, 2, 3)
+        self.assertEqual([1, 2, 3], my_list._CustomList__elements)
+
+        with self.assertRaises(ValueError) as ex:
+            my_list.extend(5)
+
+        self.assertEqual("Values are not iterable", str(ex.exception))
+
+    def test_extend_method(self):
+        my_list = CustomList(1, 2, 3)
+        self.assertEqual([1, 2, 3], my_list._CustomList__elements)
+
+        extended_list = my_list.extend([5, 6])
+        self.assertEqual([1, 2, 3, 5, 6], extended_list)
+
+
 
 
 if __name__ == '__main__':

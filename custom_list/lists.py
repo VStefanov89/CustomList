@@ -23,6 +23,13 @@ class CustomList:
         except IndexError:
             raise IndexError("Index out of range")
 
+    def extend(self, values):
+        try:
+            self.__elements.extend(values)
+            return self.__elements
+        except TypeError:
+            raise ValueError("Values are not iterable")
+
 
 
     def __str__(self):
