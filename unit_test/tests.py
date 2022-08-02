@@ -70,6 +70,13 @@ class CustomListTest(TestCase):
 
         self.assertEqual([5, 1, 2, 3], my_list._CustomList__elements)
 
+    def test_pop_method(self):
+        my_list = CustomList(1, 2, 3)
+        self.assertEqual([1, 2, 3], my_list._CustomList__elements)
+
+        value = my_list.pop()
+        self.assertEqual(3, value)
+
 
 if __name__ == '__main__':
     main()

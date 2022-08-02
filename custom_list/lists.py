@@ -33,10 +33,15 @@ class CustomList:
     def insert(self, index, value):
         self.__elements.insert(index, value)
 
+    def pop(self):
+        value = self.__elements.pop()
+        return value
+
 
     def __str__(self):
         result = ", ".join([str(el) for el in self.__elements])
         return f"[{result}]"
+
 
 
 my_list = CustomList(1, 2, 3)
