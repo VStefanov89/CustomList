@@ -47,6 +47,17 @@ class CustomList:
         except ValueError:
             raise ValueError(f"{value} is not in list")
 
+    def count(self, value):
+        return self.__elements.count(value)
+
+    def reverse(self):
+        return self.__elements.reverse()
+
+    def copy(self):
+        new_list = self.__elements.copy()
+        return new_list
+
+
 
 
     def __str__(self):

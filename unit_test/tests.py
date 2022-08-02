@@ -100,6 +100,24 @@ class CustomListTest(TestCase):
         index = my_list.index(2)
         self.assertEqual(1, index)
 
+    def test_count_method(self):
+        my_list = CustomList(1, 2, 3)
+        self.assertEqual([1, 2, 3], my_list._CustomList__elements)
+        count = my_list.count(6)
+        self.assertEqual(0, count)
+
+    def test_reverse_method(self):
+        my_list = CustomList(1, 2, 3)
+        self.assertEqual([1, 2, 3], my_list._CustomList__elements)
+
+        my_list.reverse()
+        self.assertEqual([3, 2, 1], my_list._CustomList__elements)
+
+    def test_copy_method(self):
+        my_list = CustomList(1, 2, 3)
+        self.assertEqual([1, 2, 3], my_list._CustomList__elements)
+        new_list = my_list.copy()
+        self.assertEqual([1, 2 ,3], new_list)
 
 
 if __name__ == '__main__':
