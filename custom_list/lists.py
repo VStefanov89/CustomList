@@ -30,9 +30,14 @@ class CustomList:
         except TypeError:
             raise ValueError("Values are not iterable")
 
+    def insert(self, index, value):
+        self.__elements.insert(index, value)
 
 
     def __str__(self):
         result = ", ".join([str(el) for el in self.__elements])
         return f"[{result}]"
 
+
+my_list = CustomList(1, 2, 3)
+print(my_list)

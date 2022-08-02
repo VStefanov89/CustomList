@@ -63,7 +63,12 @@ class CustomListTest(TestCase):
         extended_list = my_list.extend([5, 6])
         self.assertEqual([1, 2, 3, 5, 6], extended_list)
 
+    def test_insert_method(self):
+        my_list = CustomList(1, 2, 3)
+        self.assertEqual([1, 2, 3], my_list._CustomList__elements)
+        my_list.insert(0, 5)
 
+        self.assertEqual([5, 1, 2, 3], my_list._CustomList__elements)
 
 
 if __name__ == '__main__':
