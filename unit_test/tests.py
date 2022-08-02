@@ -77,6 +77,30 @@ class CustomListTest(TestCase):
         value = my_list.pop()
         self.assertEqual(3, value)
 
+    def test_clear_method(self):
+        my_list = CustomList(1, 2, 3)
+        self.assertEqual([1, 2, 3], my_list._CustomList__elements)
+
+        my_list.clear()
+
+        self.assertEqual([], my_list._CustomList__elements)
+
+    def test_index_method_raises(self):
+        my_list = CustomList(1, 2, 3)
+        self.assertEqual([1, 2, 3], my_list._CustomList__elements)
+
+        with self.assertRaises(ValueError) as ex:
+            my_list.index(6)
+        self.assertEqual("6 is not in list", str(ex.exception))
+
+    def test_index_method(self):
+        my_list = CustomList(1, 2, 3)
+        self.assertEqual([1, 2, 3], my_list._CustomList__elements)
+
+        index = my_list.index(2)
+        self.assertEqual(1, index)
+
+
 
 if __name__ == '__main__':
     main()

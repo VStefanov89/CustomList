@@ -37,6 +37,17 @@ class CustomList:
         value = self.__elements.pop()
         return value
 
+    def clear(self):
+        self.__elements.clear()
+
+    def index(self, value):
+        try:
+            index = self.__elements.index(value)
+            return index
+        except ValueError:
+            raise ValueError(f"{value} is not in list")
+
+
 
     def __str__(self):
         result = ", ".join([str(el) for el in self.__elements])
